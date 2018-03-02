@@ -1,11 +1,11 @@
 # searchpass
 ## Determine if a password is found within the "haveibeenpwned" database, safely.
 
-Do you need to change your password? Certainly if criminals already have this password among the lists of passwords, from captured servers, they try first to "brute force" a login. 
+Do you need to change your password? Certainly you do if criminals already have this password among the lists of passwords that try to "brute force" a login. These lists of passwords are captured from hacked servers, and shared widely.
 
 How can you check whether a password is among these known passwords, without compromising the password?
 
-[Kind individuals](https://haveibeenpwned.com/) have made this database downloadable, currently with 500 million well-known passwords. That database of passwords can be downloaded and checked locally. Better yet, the kind folks added a clever online search technique that involves hashing a password first, and sending up only the first 5 characters of the hash to check. The server sends back a list of all the hash-matches so you can easily see if there's an exact match, all with exposing a tiny, inconsequential amount of information.
+[Kind individuals](https://haveibeenpwned.com/) have made this database downloadable, with 500 million well-known passwords as of March 2018. That database of passwords can be downloaded and checked locally. Better yet, the kind folks added a clever online search technique that involves hashing a password first, and sending up only the first 5 characters of the hash to check. The server sends back a list of all the hash-matches so you can easily see if there's an exact match, all by exposing a tiny, inconsequential amount of information.
 
 Here's how to check a password online, safely, in about a minute:
 
