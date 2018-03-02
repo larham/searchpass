@@ -1,9 +1,9 @@
 # searchpass
 ## Determine if a password is found within the "haveibeenpwned" database, safely.
 
-Do you need to change your password? One motivation is whether the bad guys already have your password among the lists of passwords they use to "brute force" a login. All the passwords ever recovered from captured servers are available to try first.
+Do you need to change your password? Certainly you do if the bad guys already have this password among the lists of passwords they can use to "brute force" a login. All the passwords ever recovered from captured servers are available to try first.
 
-How can you check whether a password is among these known passwords without compromising the password?
+How can you check whether a password is among these known passwords, without compromising the password?
 
 Certain [good guys](https://haveibeenpwned.com/) have made this database downloadable, currently with 500 million well-known passwords. You can download that file and check your password locally. Better yet, the good guys added a clever online search technique that involves hashing a password first, and sending up only the first 5 characters of the hash to check. The server sends back a list of all the hash matches so you can easily see if there's an exact match.
 
@@ -49,5 +49,5 @@ Close the terminal window to clear the local password variables that were create
 
 
 
-(This entire script is [downloadable](./showpass.sh))
+(This entire script is [downloadable](./searchpass.sh))
 
