@@ -1,19 +1,19 @@
 # searchpass
 ## Determine if a password is found within the "haveibeenpwned" database, safely.
 
-Do you need to change your password? Certainly you do if the bad guys already have this password among the lists of passwords they can use to "brute force" a login. All the passwords ever recovered from captured servers are available to try first.
+Do you need to change your password? Certainly if criminals already have this password among the lists of passwords, from captured servers, they try first to "brute force" a login. 
 
 How can you check whether a password is among these known passwords, without compromising the password?
 
-Certain [good guys](https://haveibeenpwned.com/) have made this database downloadable, currently with 500 million well-known passwords. You can download that file and check your password locally. Better yet, the good guys added a clever online search technique that involves hashing a password first, and sending up only the first 5 characters of the hash to check. The server sends back a list of all the hash matches so you can easily see if there's an exact match.
+[Kind individuals](https://haveibeenpwned.com/) have made this database downloadable, currently with 500 million well-known passwords. That database of passwords can be downloaded and checked locally. Better yet, the kind folks added a clever online search technique that involves hashing a password first, and sending up only the first 5 characters of the hash to check. The server sends back a list of all the hash-matches so you can easily see if there's an exact match, all with exposing a tiny, inconsequential amount of information.
 
 Here's how to check a password online, safely, in about a minute:
 
-Prerequisite: If necessary, [install `curl`](http://macappstore.org/curl/) on macOS. On Linux, use `apt-get` or `yum` to install `curl`.
+Prerequisite: If necessary, [install `curl`](http://macappstore.org/curl/) on macOS or use, on Linux, `apt-get` or `yum` to install `curl`. Below are dozen lines of Bash shell scripting, in full view, where you can see that there's only one call to the internet, and that it is using the first 5 characters of `shasum` (SHA-1 hashing).
 
 First, bring up a new terminal window (on macOS, Applications -> Utilities -> Terminal). You will close this terminal as the last step below.
 
-Next, enter your password into a variable. The following commands will show a password prompt and record your password without echoing on the screen:
+Next, enter your password into a prompt. The following commands will show a password prompt and record your password without echoing on the screen:
 
 ```bash
 set +x
@@ -43,10 +43,9 @@ else
 fi
 ```
 
-Read the output: it should be either happily not found, or "time to change".
+Read the output: it should be either (happily) not found, or "time to change".
 
 Close the terminal window to clear the local password variables that were created above.
-
 
 
 (This entire script is [downloadable](./searchpass.sh))
