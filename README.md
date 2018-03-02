@@ -13,22 +13,22 @@ Prerequisite: If necessary, [install `curl`](http://macappstore.org/curl/) on ma
 
 (For ease in auditing, the dozen lines of scripting below remain in Bash, where you can see that there's only one call to the internet, and that the single call uses only the first 5 characters of `shasum` (SHA-1 hashing).)
 
-First, bring up a new terminal window (on macOS, Applications -> Utilities -> Terminal). You will close this terminal as the last step below.
+* First, bring up a new terminal window (on macOS, Applications -> Utilities -> Terminal). You will close this terminal as the last step below.
 
-Next, enter your password into a prompt. The following commands will show a password prompt and record your password without echoing on the screen:
+* Next, enter your password into a prompt. The following commands will show a password prompt and record your password without echoing on the screen:
 
 ```bash
 set +x
 read -s -p "Password: " PASSWORD && echo ""
 ```
 
-Let's confirm that the password was correctly typed:
+* Let's confirm that the password was correctly typed:
 
 ```bash
 read -s -p "Password Confirm: " pass_confirm && echo ""
 ```
 
-Execute the following commands in the terminal. This can be copied entirely and pasted into the terminal window.
+* Execute the following commands in the terminal. This can be copied entirely and pasted into the terminal window.
 
 ```bash
 if [ "$PASSWORD" != "$pass_confirm" ]; then
@@ -45,9 +45,9 @@ else
 fi
 ```
 
-Read the output: it should be either "Not found, happy", or "time to change".
+* Read the output: it should be either "Not found, happy", or "time to change".
 
-Close the terminal window to clear the local password variables that were created above.
+* Close the terminal window to clear the local password variables that were created above.
 
 
 (This entire script is [downloadable](./searchpass.sh))
