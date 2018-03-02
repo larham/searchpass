@@ -1,7 +1,7 @@
 # searchpass
-Determine if a password is among haveibeenpwned database, safely
+## Determine if a password is found within the "haveibeenpwned" database, safely.
 
-Changing your password is a hassle. Do you really need to? One motivation is whether the bad guys definitely, already, have it among the lists of passwords they use to "brute force" a login. They keep records of all the passwords ever recovered from captured servers.
+Do you need to change your password? One motivation is whether the bad guys already have your password among the lists of passwords they use to "brute force" a login. All the passwords ever recovered from captured servers are available to try first.
 
 How can you check whether a password is among these known passwords without compromising the password?
 
