@@ -15,9 +15,15 @@ OR
 
 below is a line-by-line explanation of the same code that you can copy/paste into a terminal window, to know how it works and be sure that it is working in your favor only.
 
-Prerequisite: If necessary, [install `curl`](http://macappstore.org/curl/) on macOS or use, on Linux, `apt-get` or `yum` to install `curl`. 
+Prerequisite: If necessary, [install `curl`](http://macappstore.org/curl/) on macOS or use, on Linux, `apt-get` or `yum` to install `curl`.
 
-(For ease in auditing, the dozen lines of scripting below remain in Bash, where you can see that there's only one call to the internet, and that the single call uses only the first 5 characters of `shasum` (SHA-1 hashing).)
+OR
+
+below is a line-by-line explanation of the same code that you can copy/paste into a terminal window, to be sure that it is working in your favor only.
+
+Prerequisite: If necessary, [install `curl`](http://macappstore.org/curl/) on macOS or use, on Linux, `apt-get` or `yum` to install `curl`.
+
+For ease in auditing, the dozen lines of scripting below remain in Bash. There's only one call to the internet, and that the single call uses only the first 5 characters of `shasum` (SHA-1 hashing).
 
 * First, bring up a new terminal window (on macOS, Applications -> Utilities -> Terminal). You will close this terminal as the last step below.
 
@@ -53,6 +59,3 @@ fi
 * Read the output: it should be either "happiness", or "time to change".
 
 * Close the terminal window to clear the local password variables that were created above.
-
-
-
