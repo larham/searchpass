@@ -9,23 +9,28 @@ How can you check whether a password is among these known passwords, without com
 
 Here's how to check a password online, safely, in about a minute:
 
+Either download and run [downloadable](./searchpass.sh) (about a dozen lines of code, 1.8K in size, md5 82b65fb07ae52009571540d87177ee58)
+
+OR
+
+below is a line-by-line explanation of the same code that you can copy/paste into a terminal window, to know how it works and be sure that it is working in your favor only.
+
 Prerequisite: If necessary, [install `curl`](http://macappstore.org/curl/) on macOS or use, on Linux, `apt-get` or `yum` to install `curl`. 
 
 (For ease in auditing, the dozen lines of scripting below remain in Bash, where you can see that there's only one call to the internet, and that the single call uses only the first 5 characters of `shasum` (SHA-1 hashing).)
 
 * First, bring up a new terminal window (on macOS, Applications -> Utilities -> Terminal). You will close this terminal as the last step below.
 
-* Next, enter your password into a prompt. The following commands will show a password prompt and record your password without echoing on the screen:
+* Next, enter your password into the prompt "Password to Attempt to Find:". The following commands will show a password prompt and record your password without echoing on the screen:
 
 ```bash
-set +x
-read -s -p "Password: " PASSWORD && echo ""
+read -s -p "Password to Attempt to Find: " PASSWORD && echo ""
 ```
 
 * Let's confirm that the password was correctly typed:
 
 ```bash
-read -s -p "Password Confirm: " pass_confirm && echo ""
+read -s -p "Password Again (to confirm): " pass_confirm && echo ""
 ```
 
 * Execute the following commands in the terminal. This can be copied entirely and pasted into the terminal window.
@@ -39,16 +44,15 @@ sha=$(echo -n "$PASSWORD" | shasum | tr [a-z] [A-Z] | awk '{ print $1 }')
 result=$(curl -s https://api.pwnedpasswords.com/range/${sha:0:5} | grep ${sha:5})
 
 if [ "$result" == "" ]; then
-   echo "---Not found, happy :)"
+   echo "---Not Found in Online List of Known Passwords, happiness :)"
 else
    echo '---That password IS known; time to change it!'
 fi
 ```
 
-* Read the output: it should be either "Not found, happy", or "time to change".
+* Read the output: it should be either "happiness", or "time to change".
 
 * Close the terminal window to clear the local password variables that were created above.
 
 
-(This entire script is [downloadable](./searchpass.sh))
 
