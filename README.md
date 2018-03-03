@@ -9,7 +9,7 @@ How can you check whether a password is among these known passwords, without com
 
 Here's how to check a password online, safely, in about a minute:
 
-Either download and run [downloadable](./searchpass.sh) (about a dozen lines of code, 1.8K in size, md5 82b65fb07ae52009571540d87177ee58)
+Either download and run [downloadable](./searchpass.sh) <small>(1.8K, md5 82b65fb07ae52009571540d87177ee58)</small>
 
 OR
 
