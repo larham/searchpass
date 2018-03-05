@@ -53,3 +53,5 @@ fi
 * Read the output: it should be either "happiness", or "time to change".
 
 * Close the terminal window to clear the local password variables that were created above.
+
+P.S., if you need to change, here's an xkcd hint on how to easily create a [memorable, unique, strong password](https://xkcd.com/936/)
