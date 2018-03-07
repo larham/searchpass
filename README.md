@@ -21,16 +21,16 @@ For ease in auditing, the dozen lines of scripting below remain in Bash. There's
 
 * First, bring up a new terminal window (on macOS, Applications -> Utilities -> Terminal). You will close this terminal as the last step below.
 
-* Next, enter your password into the prompt "Password to Attempt to Find:". The following commands will show a password prompt and record your password without echoing on the screen:
+* Next, enter your password into the prompt "Password to search for in known-passwords list". The following commands will show a password prompt and record your password without echoing on the screen:
 
 ```bash
-read -s -p "Password to Attempt to Find: " PASSWORD && echo ""
+read -s -p "Password to search for in known-passwords list: " PASSWORD && echo ""
 ```
 
 * Let's confirm that the password was correctly typed:
 
 ```bash
-read -s -p "Password Again (to confirm): " pass_confirm && echo ""
+read -s -p "Re-enter the password, to confirm: " pass_confirm && echo ""
 ```
 
 * Execute the following commands in the terminal. This can be copied entirely and pasted into the terminal window.
@@ -44,7 +44,7 @@ sha=$(echo -n "$PASSWORD" | shasum | tr [a-z] [A-Z] | awk '{ print $1 }')
 result=$(curl -s https://api.pwnedpasswords.com/range/${sha:0:5} | grep ${sha:5})
 
 if [ "$result" == "" ]; then
-   echo "---Not Found in Online List of Known Passwords, happiness :)"
+   echo "---Not Found in List of Known Passwords, happiness :)"
 else
    echo '---That password IS known; time to change it!'
 fi

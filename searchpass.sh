@@ -8,8 +8,8 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 set +x  # turn off echoing each command, helpful to clarify the result as found or not
-read -s -p "Password: " PASSWORD && echo ""
-read -s -p "Password Confirm: " pass_confirm && echo ""
+read -s -p "Password to search for in known-passwords list: " PASSWORD && echo ""
+read -s -p "Re-enter the password, to confirm: " pass_confirm && echo ""
 
 if [ "$PASSWORD" != "$pass_confirm" ]; then
    echo "Password confirmation didn't match; start again." && exit -1
@@ -19,7 +19,7 @@ sha=$(echo -n "$PASSWORD" | shasum | tr [a-z] [A-Z] | awk '{ print $1 }')
 result=$(curl -s https://api.pwnedpasswords.com/range/${sha:0:5} | grep ${sha:5})
 
 if [ "$result" == "" ]; then
-   echo "---Not found :)"
+   echo "---Not Found in List of Known Passwords, happiness :)"
 else
    echo '---That password IS known; time to change it!'
 fi
